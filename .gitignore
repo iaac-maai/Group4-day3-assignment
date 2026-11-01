@@ -1,0 +1,14 @@
+# data is downloaded by the notebook
+data/*
+!data/.gitkeep
+# published on Hugging Face only
+dataset/*.csv
+models/*.joblib
+test_download/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# separate clone of our Day 2 repository, not part of this project
+Group4-day2-assignment/
