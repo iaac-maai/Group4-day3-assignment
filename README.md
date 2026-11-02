@@ -78,7 +78,7 @@ More figures: [PCA](figures/02_pca_explained_variance.png) · [choice of k](figu
 ## AI usage disclosure
 | | |
 |---|---|
-| **Tools** | Claude Code (agent): it read the class notebook and the brief, wrote and ran the notebook, and drafted this README and the cards |
+| **Tools** | Claude Code (agent): Coding assistant for the analysis and project structure|
 | **Why** | To speed up the code and the plots, and to get a structured first draft of the interpretation |
 | **Where** | Feature engineering, clustering code, figures, first drafts of the cluster names, README, model card and dataset card |
 | **How** | Prompt: *"use our Day 2 dataset and do the three steps (dimensionality reduction, clustering, application), give me the python code, a README and nice diagrams like the class notebook"*. The agent prototyped several feature sets and chose k from the metrics table, then proposed names from the profiles and cross-tabs. **To do by the team:** check every number in the cards against the notebook output, and confirm or change the cluster names and their justification |
