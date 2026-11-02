@@ -1,6 +1,6 @@
 # Household Energy Trajectories: unsupervised learning on 29,000 homes
 
-**Team:** Group 4 – Name Surname, Name Surname, Name Surname
+**Team:** Group 4 – Luis, Fawad, Hetashree ,Daria.
 **Course:** AI Methods I – Day 3: Unsupervised learning (IAAC MaAI 2026/27)
 **Dataset on Hugging Face:** https://huggingface.co/datasets/iaac-maai/day3-group4-household-energy-trajectories
 **Model on Hugging Face:** https://huggingface.co/iaac-maai/day3-group4-household-energy-typologies
