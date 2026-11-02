@@ -1,14 +1,26 @@
-# data is downloaded by the notebook
+# virtual environments
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# data: downloaded by the notebook, not committed
 data/*
 !data/.gitkeep
-# published on Hugging Face only
-dataset/*.csv
+
+# fitted model and published data: on Hugging Face, not on GitHub
 models/*.joblib
+dataset/*.csv
 test_download/
-.venv/
-__pycache__/
-.ipynb_checkpoints/
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# secrets
+.env
+kaggle.json
 
 # separate clone of our Day 2 repository, not part of this project
 Group4-day2-assignment/
