@@ -2,6 +2,7 @@
 license: other
 license_name: open-government-licence-v3
 license_link: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+pretty_name: Household energy trajectories (NEED, England & Wales), clustered
 task_categories:
   - tabular-classification
 tags:
@@ -21,16 +22,17 @@ size_categories:
 29,390 gas-heated homes, each with 20 years of valid annual gas and electricity readings, engineered trajectory features, and an **energy-behaviour group** found with K-Means. Each row also carries 2D coordinates on PCA, UMAP and, for a 6,000-home sample, t-SNE maps. Made by Group 4 for AI Methods I (IAAC MaAI 2026/27).
 
 - **Model:** [iaac-maai/day3-group4-household-energy-typologies](https://huggingface.co/iaac-maai/day3-group4-household-energy-typologies)
-- **Code:** https://github.com/iaac-maai/<repo-name>
+- **Code:** https://github.com/iaac-maai/Group4-day3-assignment
+- **Team:** Group 4 – Luis, Fawad, Hetashri, Daria
 
 ## Source and licence
 Derived from the **National Energy Efficiency Data-Framework (NEED) anonymised dataset**, UK Department for Energy Security and Net Zero, via our Day 1 cleaned 50k sample. Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). The data is anonymised and has no addresses or personal identifiers. `home_id` is a new row number.
 
 ## What we changed
-1. Kept only gas-heated homes (`MAIN_HEAT_FUEL == 1`).
-2. Set readings not flagged valid (`V`) to missing.
-3. Averaged three windows (2005–08, 2019–21, 2022–24; at least 2 valid readings each) and kept the homes with all five windows.
-4. Added log features, the K-Means cluster and its name, the Ward label and DBSCAN outlier flag (sample only), and the map coordinates.
+1. **Rows:** started from our cleaned 50k sample (49,998 homes). Kept the 40,445 gas-heated homes (`MAIN_HEAT_FUEL == 1`), then the **29,390** homes with valid readings in all three time windows (73 %). Electrically heated homes were excluded because their heating is hidden in the electricity reading.
+2. **Cleaning:** every annual reading not flagged valid (`V`) was set to missing. No values were imputed: window averages simply ignore missing years.
+3. **Feature engineering:** 5 window averages (gas 2005–08, 2019–21, 2022–24; electricity 2005–08, 2022–24; at least 2 valid readings each) and 5 clustering features (log10 consumption levels, log2 change ratios), plus a readable region name and one deprivation column for England and Wales.
+4. **Clustering:** `cluster` and `cluster_name` come from the model above (StandardScaler + K-Means, k = 4). `cluster_ward` (Ward, k = 4) and `dbscan_outlier` (DBSCAN, eps = 1.0, min_samples = 10) were computed for a random sample of 6,000 homes. Coordinates: PCA (2 components), UMAP (`n_neighbors=30`, `min_dist=0.1`), t-SNE (`perplexity=40`, sample only), all with `random_state=42`.
 
 ## The groups
 | cluster | cluster_name | Homes | Description |
@@ -69,3 +71,12 @@ import pandas as pd
 df = pd.read_csv("hf://datasets/iaac-maai/day3-group4-household-energy-trajectories/need_household_energy_trajectories.csv")
 df.plot.scatter("umap_x", "umap_y", c="cluster", cmap="tab10", s=2)
 ```
+
+## Related
+- GitHub repository: https://github.com/iaac-maai/Group4-day3-assignment
+- Model: https://huggingface.co/iaac-maai/day3-group4-household-energy-typologies
+
+## Authors and licence
+Group 4 – Luis, Fawad, Hetashree, Daria. Course assignment for **AI Methods I: Machine Learning for the Built Environment**, IAAC MaAI 2026/27.
+
+Released under the Open Government Licence v3.0, based on the NEED anonymised dataset (UK Department for Energy Security and Net Zero, Open Government Licence v3.0).
