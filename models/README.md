@@ -18,8 +18,8 @@ datasets:
 
 This model assigns a gas-heated home in England or Wales to one of **4 energy-behaviour groups**. It uses how much gas and electricity the home uses today and how that use changed between 2005 and 2024. It is a scikit-learn pipeline (`StandardScaler → KMeans`, k = 4) fitted on 29,390 homes from the UK NEED anonymised dataset. We built it as a course assignment for AI Methods I (IAAC MaAI 2026/27).
 
-- **GitHub repository (full analysis):** https://github.com/iaac-maai/<repo-name>
-- **Team:** Group 4 – Name Surname, Name Surname, Name Surname
+- **GitHub repository (full analysis):** https://github.com/iaac-maai/Group4-day3-assignment
+- **Team:** Group 4 – Luis, Fawad, Hetashri, Daria
 
 ## Intended use
 - **Intended users and use:** energy-efficiency programmes and local authorities that want to **segment a housing stock for outreach**. For example: which homes to offer insulation first, and which to check for fuel poverty.
