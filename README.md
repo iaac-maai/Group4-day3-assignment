@@ -22,7 +22,7 @@ We kept the Day 1/2 dataset, so this repository needs only **one notebook**.
 ```
 ├── data/        # anon2026_50k_cleaned.csv is downloaded here by the notebook (not committed)
 ├── dataset/     # dataset card (README.md) + its figures; the CSV lives on Hugging Face
-├── figures/     # all exported plots (01_… to 12_…)
+├── figures/     # all exported plots (02_… to 12_…)
 ├── models/      # model card (README.md); model.joblib lives on Hugging Face
 ├── notebook/    # unsupervised_learning.ipynb
 ├── .gitignore
@@ -63,10 +63,10 @@ The notebook follows **three steps**:
 **Quality of the grouping:** silhouette 0.18 (weak separation: household behaviour is a continuum). Stability is high: ARI 0.98 across seeds and ≥ 0.94 across 80 % subsamples. K-Means and Ward agree only partly (ARI 0.27).
 
 ![Gas and electricity trajectories per cluster](figures/09_trajectories_per_cluster.png)
-![The named clusters on PCA, t-SNE and UMAP](figures/11_named_clusters_projections.png)
+![The four named groups on the UMAP map, with PCA and t-SNE](figures/11_named_clusters_projections.png)
 ![Cluster profile card](figures/12_cluster_profile_card.png)
 
-More figures: [PCA](figures/02_pca_explained_variance.png) · [choice of k](figures/04_choice_of_k.png) · [dendrogram](figures/05_dendrogram.png) · [DBSCAN](figures/06_dbscan_k_distance.png) · [algorithms compared](figures/07_algorithms_compared.png) · [stability](figures/08_stability.png) · [cross-tabs](figures/10_crosstabs_building_characteristics.png)
+More figures: [PCA](figures/02_pca_explained_variance.png) · [choice of k](figures/04_choice_of_k.png) · [dendrogram](figures/05_dendrogram.png) · [DBSCAN](figures/06_dbscan_k_distance.png) · [cross-tabs](figures/10_crosstabs_building_characteristics.png)
 
 ## Limitations
 - The groups cut a **continuum** (silhouette ≈ 0.18). Use them to target at group level, not to judge single households.
