@@ -1,9 +1,9 @@
-pandas>=2.2
-numpy>=2.0
-matplotlib>=3.8
-seaborn>=0.13
+pandas==3.1.0
+numpy==2.5.4
+matplotlib==3.11.2
+seaborn==0.13.2
 scikit-learn==1.9.1
-scipy>=1.13
-umap-learn>=0.5.7
-joblib>=1.4
+scipy==1.18.1
+umap-learn==0.5.12
+joblib==1.6.0
 jupyter
