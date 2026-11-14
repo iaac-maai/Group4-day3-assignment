@@ -3,8 +3,6 @@ license: other
 license_name: open-government-licence-v3
 license_link: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 pretty_name: Household energy trajectories (NEED, England & Wales), clustered
-task_categories:
-  - tabular-classification
 tags:
   - clustering
   - unsupervised-learning
@@ -15,6 +13,11 @@ tags:
   - ai-methods-1
 size_categories:
   - 10K<n<100K
+configs:
+  - config_name: default
+    data_files:
+      - split: train
+        path: need_household_energy_trajectories.csv
 ---
 
 # Household energy trajectories (NEED, England & Wales, 2005–2024), clustered
