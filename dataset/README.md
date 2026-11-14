@@ -62,6 +62,11 @@ Derived from the **National Energy Efficiency Data-Framework (NEED) anonymised d
 | `pca_x`, `pca_y`, `umap_x`, `umap_y` | 2D coordinates, all homes |
 | `tsne_x`, `tsne_y` | t-SNE coordinates, only for the sample |
 
+## Quality and stability of the groups
+- **Stability:** the groups are very reproducible. K-Means gives almost the same groups with 10 different random seeds (ARI 0.98) and on 10 random subsamples of 80 % of the homes (ARI ≥ 0.94). See `08_stability.png` in the GitHub repository.
+- **Separation:** weak (silhouette 0.18). Household behaviour is a continuum, and many homes sit near a border between two groups.
+- **Agreement with another method:** Ward hierarchical clustering (k = 4) agrees only partly (ARI 0.27).
+
 ## Limitations
 The groups cut a continuum (silhouette ≈ 0.18) and should be used at group level. Annual readings cannot tell efficiency apart from changes in occupancy. Newer and electrically heated homes are excluded. Readings are rounded to 100 kWh.
 
@@ -77,6 +82,6 @@ df.plot.scatter("umap_x", "umap_y", c="cluster", cmap="tab10", s=2)
 - Model: https://huggingface.co/iaac-maai/day3-group4-household-energy-typologies
 
 ## Authors and licence
-Group 4 – Luis, Fawad, Hetashree, Daria. Course assignment for **AI Methods I: Machine Learning for the Built Environment**, IAAC MaAI 2026/27.
+Group 4 – Luis, Fawad, Hetashri, Daria. Course assignment for **AI Methods I: Machine Learning for the Built Environment**, IAAC MaAI 2026/27.
 
 Released under the Open Government Licence v3.0, based on the NEED anonymised dataset (UK Department for Energy Security and Net Zero, Open Government Licence v3.0).
